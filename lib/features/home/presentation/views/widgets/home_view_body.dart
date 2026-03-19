@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/utils/styles.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/custom_app_bar.dart';
+import 'package:movie_app/features/home/presentation/views/widgets/now_playing_movies_item.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/trending_movies_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -8,17 +9,34 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomAppBar(),
-        SizedBox(height: 30),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Text('Trendings 🔥', style: Styles.textStyle24),
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomAppBar(),
+              SizedBox(height: 30),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text('Trendings 🔥', style: Styles.textStyle24),
+              ),
+              TrendingMoviesCarouselSlider(),
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text('Now Playing', style: Styles.textStyle24),
+              ),
+              SizedBox(height: 10),
+            ],
+          ),
         ),
-        SizedBox(height: 10),
-        TrendingMoviesCarouselSlider(),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: NowPlayingMoviesItem(),
+          ),
+        ),
       ],
     );
   }
