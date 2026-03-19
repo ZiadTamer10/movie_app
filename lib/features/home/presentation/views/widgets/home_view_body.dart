@@ -18,7 +18,7 @@ class HomeViewBody extends StatelessWidget {
           child: Text('Trendings 🔥', style: Styles.textStyle24),
         ),
         SizedBox(height: 10),
-        TrendingMoviesListView(),
+        TrendingMoviesCarouselSlider(),
       ],
     );
   }
