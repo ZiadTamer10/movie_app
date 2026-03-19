@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/core/utils/styles.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/now_playing_movies_item.dart';
+import 'package:movie_app/features/home/presentation/views/widgets/now_playing_movies_list_view.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/trending_movies_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -34,7 +35,7 @@ class HomeViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: NowPlayingMoviesItem(),
+            child: NowPlayingMoviesListView(),
           ),
         ),
       ],
