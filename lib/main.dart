@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/utils/app_router.dart';
 
 void main() {
   runApp(const MovieApp());
@@ -9,6 +10,10 @@ class MovieApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp.router(
+      theme: ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
+      routerConfig: AppRouter.router,
+    );
   }
 }
