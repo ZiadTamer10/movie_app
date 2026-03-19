@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/core/utils/app_router.dart';
 
 void main() {
@@ -11,7 +12,9 @@ class MovieApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      theme: ThemeData.dark(),
+      theme: ThemeData.dark().copyWith(
+        textTheme: GoogleFonts.latoTextTheme(ThemeData.dark().textTheme),
+      ),
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router,
     );
