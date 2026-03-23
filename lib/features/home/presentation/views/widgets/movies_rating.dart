@@ -12,7 +12,7 @@ class MoviesRating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 115),
+      padding: const EdgeInsets.only(left: 110),
       child: Row(
         mainAxisAlignment: mainAxisAlignment,
         spacing: 4,
