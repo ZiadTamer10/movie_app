@@ -10,7 +10,7 @@ class MediaDetailsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 20,
+      spacing: 10,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomDetailsAppBar(),
@@ -20,7 +20,6 @@ class MediaDetailsSection extends StatelessWidget {
             height: 200,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.red,
               image: DecorationImage(
                 image: AssetImage(AssetsData.testImage),
                 fit: BoxFit.fill,

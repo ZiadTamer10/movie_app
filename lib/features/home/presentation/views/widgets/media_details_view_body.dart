@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/media_details_section.dart';
+import 'package:movie_app/features/home/presentation/views/widgets/recommendation_section.dart';
 
 class MediaDetailsViewBody extends StatelessWidget {
   const MediaDetailsViewBody({super.key});
@@ -9,7 +10,8 @@ class MediaDetailsViewBody extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(child: MediaDetailsSection()),
-        SliverToBoxAdapter(child: SizedBox(height: 10)),
+        SliverToBoxAdapter(child: SizedBox(height: 20)),
+        SliverToBoxAdapter(child: RecommendationSection()),
       ],
     );
   }
