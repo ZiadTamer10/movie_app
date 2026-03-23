@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/home/presentation/views/widgets/now_playing_movies_item.dart';
+import 'package:movie_app/features/home/presentation/views/widgets/media_item_card.dart';
 
-class NowPlayingMoviesListView extends StatelessWidget {
-  const NowPlayingMoviesListView({super.key});
+class TopRatedMoviesListView extends StatelessWidget {
+  const TopRatedMoviesListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class NowPlayingMoviesListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(right: 10),
-            child: NowPlayingMoviesItem(),
+            child: MediaItemCard(),
           );
         },
       ),

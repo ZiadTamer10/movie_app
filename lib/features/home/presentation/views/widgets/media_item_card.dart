@@ -3,8 +3,8 @@ import 'package:movie_app/core/utils/assets_data.dart';
 import 'package:movie_app/core/utils/styles.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/movies_rating.dart';
 
-class NowPlayingMoviesItem extends StatelessWidget {
-  const NowPlayingMoviesItem({super.key});
+class MediaItemCard extends StatelessWidget {
+  const MediaItemCard({super.key});
 
   @override
   Widget build(BuildContext context) {
