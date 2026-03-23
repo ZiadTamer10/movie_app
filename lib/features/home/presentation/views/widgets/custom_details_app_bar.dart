@@ -6,11 +6,14 @@ class CustomDetailsAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        GoRouter.of(context).pop();
-      },
-      icon: Icon(Icons.arrow_back_ios_new),
+    return Padding(
+      padding: const EdgeInsets.only(left: 8, top: 8),
+      child: IconButton(
+        onPressed: () {
+          GoRouter.of(context).pop();
+        },
+        icon: Icon(Icons.arrow_back_ios_new),
+      ),
     );
   }
 }
