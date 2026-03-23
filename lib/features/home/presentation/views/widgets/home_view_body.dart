@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/utils/styles.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/custom_app_bar.dart';
+import 'package:movie_app/features/home/presentation/views/widgets/home_section.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/now_playing_list_view.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/popular_tv_list_view.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/top_rated_movies_list_view.dart';
@@ -26,62 +27,13 @@ class HomeViewBody extends StatelessWidget {
               ),
               TrendingMoviesCarouselSlider(),
               SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text('Now Playing', style: Styles.textStyle24),
-              ),
-              SizedBox(height: 10),
             ],
           ),
         ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: NowPlayingListView(),
-          ),
-        ),
-        SliverToBoxAdapter(child: SizedBox(height: 10)),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Text('Top Rated Movies', style: Styles.textStyle24),
-          ),
-        ),
-        SliverToBoxAdapter(child: SizedBox(height: 10)),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: TopRatedMoviesListView(),
-          ),
-        ),
-        SliverToBoxAdapter(child: SizedBox(height: 10)),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Text('Popular TV', style: Styles.textStyle24),
-          ),
-        ),
-        SliverToBoxAdapter(child: SizedBox(height: 10)),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: PopularTvListView(),
-          ),
-        ),
-        SliverToBoxAdapter(child: SizedBox(height: 10)),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Text('Top Rated TV', style: Styles.textStyle24),
-          ),
-        ),
-        SliverToBoxAdapter(child: SizedBox(height: 10)),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: TopRatedTvListView(),
-          ),
-        ),
+        HomeSection(title: 'Now Playing', child: NowPlayingListView()),
+        HomeSection(title: 'Top Rated Movies', child: TopRatedMoviesListView()),
+        HomeSection(title: 'Popoular TV', child: PopularTvListView()),
+        HomeSection(title: 'Top Rated TV', child: TopRatedTvListView()),
       ],
     );
   }
