@@ -6,6 +6,6 @@ class MediaDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: MediaDetailsViewBody());
+    return Scaffold(body: SafeArea(child: MediaDetailsViewBody()));
   }
 }
