@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/media_item_card.dart';
 
-class RecommendationListView extends StatelessWidget {
-  const RecommendationListView({super.key});
+class SimilarListView extends StatelessWidget {
+  const SimilarListView({super.key});
 
   @override
   Widget build(BuildContext context) {

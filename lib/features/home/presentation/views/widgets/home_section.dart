@@ -10,18 +10,16 @@ class HomeSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
+      child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title, style: Styles.textStyle24),
+            Padding(padding: const EdgeInsets.symmetric(horizontal: 16),child: Text(title, style: Styles.textStyle24),),           
             SizedBox(height: 10),
             child,
             SizedBox(height: 10),
           ],
         ),
-      ),
+      
     );
   }
 }
