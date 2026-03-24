@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/utils/assets_data.dart';
 import 'package:movie_app/core/utils/styles.dart';
-import 'package:movie_app/features/home/presentation/views/widgets/custom_details_app_bar.dart';
+import 'package:movie_app/core/widgets/custom_core_app_bar.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/movies_rating.dart';
 
 class MediaDetailsSection extends StatelessWidget {
@@ -13,7 +13,7 @@ class MediaDetailsSection extends StatelessWidget {
       spacing: 10,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomDetailsAppBar(),
+        CustomCoreAppBar(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Container(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class CustomDetailsAppBar extends StatelessWidget {
-  const CustomDetailsAppBar({super.key});
+class CustomCoreAppBar extends StatelessWidget {
+  const CustomCoreAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
