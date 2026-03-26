@@ -46,8 +46,20 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failures, List<MovieModel>>> fetchTopRatedMovies() {
-    // TODO: implement fetchTopRatedMovies
-    throw UnimplementedError();
+  Future<Either<Failures, List<MovieModel>>> fetchTopRatedMovies() async {
+    try {
+      var data = await apiServices.get(endPoint: 'movie/top_rated');
+
+      List<MovieModel> movies = [];
+      for (var item in data['results']) {
+        movies.add(MovieModel.fromJson(item));
+      }
+      return right(movies);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.factoryDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
   }
 }
