@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:movie_app/core/errors/failure.dart';
 import 'package:movie_app/core/utils/api_services.dart';
 import 'package:movie_app/features/home/data/model/movie_model.dart';
@@ -9,7 +10,7 @@ class HomeRepoImpl extends HomeRepo {
 
   HomeRepoImpl(this.apiServices);
   @override
-  Future<Either<Failure, List<MovieModel>>> fetchPopularMovies() async {
+  Future<Either<Failures, List<MovieModel>>> fetchPopularMovies() async {
     try {
       var data = await apiServices.get(endPoint: 'movie/popular');
 
@@ -19,18 +20,21 @@ class HomeRepoImpl extends HomeRepo {
       }
       return right(movies);
     } on Exception catch (e) {
-      return left(ServerFailure());
+      if (e is DioException) {
+        return Left(ServerFailure.factoryDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 
   @override
-  Future<Either<Failure, List<MovieModel>>> fetchNowPlayingMovies() {
+  Future<Either<Failures, List<MovieModel>>> fetchNowPlayingMovies() {
     // TODO: implement fetchPopularMovies
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<Failure, List<MovieModel>>> fetchTopRatedMovies() {
+  Future<Either<Failures, List<MovieModel>>> fetchTopRatedMovies() {
     // TODO: implement fetchTopRatedMovies
     throw UnimplementedError();
   }
