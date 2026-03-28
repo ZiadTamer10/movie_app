@@ -5,18 +5,18 @@ import 'package:movie_app/features/home/data/repos/home_repo.dart';
 
 part 'popular_tv_state.dart';
 
-class PopularTvCubit extends Cubit<PopularTvState> {
+class PopularTvCubit extends Cubit<PopularTVState> {
   PopularTvCubit(this.homeRepo) : super(PopularTvInitial());
 
   final HomeRepo homeRepo;
 
   Future<void> fetchPopularTV() async {
-    emit(PopularTvLoading());
+    emit(PopularTVLoading());
     var result = await homeRepo.fetchPopulatTV();
 
     result.fold(
-      (failure) => emit(PopularTvFailure(failure.errMessage)),
-      (tv) => emit(PopularTvSuccess(tv)),
+      (failure) => emit(PopularTVFailure(failure.errMessage)),
+      (tv) => emit(PopularTVSuccess(tv)),
     );
   }
 }

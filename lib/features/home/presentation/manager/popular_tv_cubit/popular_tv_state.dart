@@ -1,24 +1,24 @@
 part of 'popular_tv_cubit.dart';
 
-sealed class PopularTvState extends Equatable {
-  const PopularTvState();
+sealed class PopularTVState extends Equatable {
+  const PopularTVState();
 
   @override
   List<Object> get props => [];
 }
 
-final class PopularTvInitial extends PopularTvState {}
+final class PopularTvInitial extends PopularTVState {}
 
-final class PopularTvLoading extends PopularTvState {}
+final class PopularTVLoading extends PopularTVState {}
 
-final class PopularTvSuccess extends PopularTvState {
+final class PopularTVSuccess extends PopularTVState {
   final List<MovieModel> tv;
 
-  const PopularTvSuccess(this.tv);
+  const PopularTVSuccess(this.tv);
 }
 
-final class PopularTvFailure extends PopularTvState {
+final class PopularTVFailure extends PopularTVState {
   final String errMeesage;
 
-  const PopularTvFailure(this.errMeesage);
+  const PopularTVFailure(this.errMeesage);
 }

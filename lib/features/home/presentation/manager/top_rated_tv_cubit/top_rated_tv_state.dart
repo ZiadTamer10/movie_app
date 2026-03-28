@@ -1,24 +1,24 @@
 part of 'top_rated_tv_cubit.dart';
 
-sealed class TopRatedTvState extends Equatable {
-  const TopRatedTvState();
+sealed class TopRatedTVState extends Equatable {
+  const TopRatedTVState();
 
   @override
   List<Object> get props => [];
 }
 
-final class TopRatedTvInitial extends TopRatedTvState {}
+final class TopRatedTVInitial extends TopRatedTVState {}
 
-final class TopRatedTvLoading extends TopRatedTvState {}
+final class TopRatedTVLoading extends TopRatedTVState {}
 
-final class TopRatedTvSuccess extends TopRatedTvState {
+final class TopRatedTVSuccess extends TopRatedTVState {
   final List<MovieModel> tv;
 
-  const TopRatedTvSuccess(this.tv);
+  const TopRatedTVSuccess(this.tv);
 }
 
-final class TopRatedTvFailure extends TopRatedTvState {
+final class TopRatedTVFailure extends TopRatedTVState {
   final String errMessage;
 
-  const TopRatedTvFailure(this.errMessage);
+  const TopRatedTVFailure(this.errMessage);
 }
