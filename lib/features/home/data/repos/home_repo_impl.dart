@@ -62,4 +62,40 @@ class HomeRepoImpl extends HomeRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failures, List<MovieModel>>> fetchPopulatTV() async {
+    try {
+      var data = await apiServices.get(endPoint: 'tv/popular');
+
+      List<MovieModel> tv = [];
+      for (var item in data['results']) {
+        tv.add(MovieModel.fromJson(item));
+      }
+      return right(tv);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.factoryDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failures, List<MovieModel>>> fetchTopRatedTV() async {
+    try {
+      var data = await apiServices.get(endPoint: 'tv/top_rated');
+
+      List<MovieModel> tv = [];
+      for (var item in data['results']) {
+        tv.add(MovieModel.fromJson(item));
+      }
+      return right(tv);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.factoryDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }
