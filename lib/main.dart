@@ -23,19 +23,27 @@ class MovieApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => PopularMoviesCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) =>
+              PopularMoviesCubit(getIt.get<HomeRepoImpl>())
+                ..fetchPopularMovies(),
         ),
         BlocProvider(
-          create: (context) => NowPlayingMoviesCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) =>
+              NowPlayingMoviesCubit(getIt.get<HomeRepoImpl>())
+                ..fetchNowPlayingMovies(),
         ),
         BlocProvider(
-          create: (context) => TopRatedMoviesCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) =>
+              TopRatedMoviesCubit(getIt.get<HomeRepoImpl>())
+                ..fetchTopRatedMovies(),
         ),
         BlocProvider(
-          create: (context) => PopularTVCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) =>
+              PopularTVCubit(getIt.get<HomeRepoImpl>())..fetchPopularTV(),
         ),
         BlocProvider(
-          create: (context) => TopRatedTVCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) =>
+              TopRatedTVCubit(getIt.get<HomeRepoImpl>())..fetchTopRatedTV(),
         ),
       ],
       child: MaterialApp.router(
