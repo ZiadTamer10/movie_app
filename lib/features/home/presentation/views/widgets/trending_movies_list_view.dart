@@ -1,11 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fan_carousel_image_slider/fan_carousel_image_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/utils/assets_data.dart';
-import 'package:movie_app/core/widgets/custom_error_widget.dart';
-import 'package:movie_app/core/widgets/custom_loading_indicator.dart';
-import 'package:movie_app/features/home/presentation/manager/popular_movies_cubit/popular_movies_cubit.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/trending_movies_item.dart';
 
 //? Normal List View Builder
@@ -35,31 +31,21 @@ class TrendingMoviesCarouselSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PopularMoviesCubit, PopularMoviesState>(
-      builder: (context, state) {
-        if (state is PopularMoviesSuccess) {
-          return SizedBox(
-            height: MediaQuery.of(context).size.height * .35,
-            child: CarouselSlider.builder(
-              itemCount: 10,
-              itemBuilder: (context, index, realIndex) {
-                return TrendingMovies();
-              },
-              options: CarouselOptions(
-                height: 270,
-                enlargeCenterPage: true,
-                viewportFraction: 0.5,
-                enableInfiniteScroll: true,
-                autoPlay: true,
-              ),
-            ),
-          );
-        } else if (state is PopularMoviesFailure) {
-          return CustomErrorWidget(state.errMessage);
-        } else {
-          return CustomLoadingIndicator();
-        }
-      },
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * .35,
+      child: CarouselSlider.builder(
+        itemCount: 10,
+        itemBuilder: (context, index, realIndex) {
+          return TrendingMovies();
+        },
+        options: CarouselOptions(
+          height: 270,
+          enlargeCenterPage: true,
+          viewportFraction: 0.5,
+          enableInfiniteScroll: true,
+          autoPlay: true,
+        ),
+      ),
     );
   }
 }
