@@ -5,8 +5,8 @@ import 'package:movie_app/features/home/data/repos/home_repo.dart';
 
 part 'popular_tv_state.dart';
 
-class PopularTvCubit extends Cubit<PopularTVState> {
-  PopularTvCubit(this.homeRepo) : super(PopularTvInitial());
+class PopularTVCubit extends Cubit<PopularTVState> {
+  PopularTVCubit(this.homeRepo) : super(PopularTvInitial());
 
   final HomeRepo homeRepo;
 

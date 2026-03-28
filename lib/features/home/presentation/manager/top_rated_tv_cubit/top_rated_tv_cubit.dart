@@ -5,8 +5,8 @@ import 'package:movie_app/features/home/data/repos/home_repo.dart';
 
 part 'top_rated_tv_state.dart';
 
-class TopRatedTvCubit extends Cubit<TopRatedTVState> {
-  TopRatedTvCubit(this.homeRepo) : super(TopRatedTVInitial());
+class TopRatedTVCubit extends Cubit<TopRatedTVState> {
+  TopRatedTVCubit(this.homeRepo) : super(TopRatedTVInitial());
   final HomeRepo homeRepo;
 
   Future<void> fetchTopRatedTV() async {
