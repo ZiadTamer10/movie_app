@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/utils/assets_data.dart';
 
 class TrendingMovies extends StatelessWidget {
-  const TrendingMovies({super.key});
+  const TrendingMovies(this.poster, {super.key});
 
+  final String poster;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -11,10 +11,7 @@ class TrendingMovies extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
-          image: DecorationImage(
-            image: AssetImage(AssetsData.testImage),
-            fit: BoxFit.fill,
-          ),
+          image: DecorationImage(image: NetworkImage(poster), fit: BoxFit.fill),
         ),
       ),
     );
