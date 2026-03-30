@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class TrendingMovies extends StatelessWidget {
@@ -6,12 +7,14 @@ class TrendingMovies extends StatelessWidget {
   final String poster;
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 3 / 4,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40),
-          image: DecorationImage(image: NetworkImage(poster), fit: BoxFit.fill),
+    return ClipRRect(
+      borderRadius: BorderRadiusGeometry.circular(16),
+      child: AspectRatio(
+        aspectRatio: 3 / 4,
+        child: CachedNetworkImage(
+          imageUrl: poster,
+          fit: BoxFit.fill,
+          errorWidget: (context, url, error) => Icon(Icons.error),
         ),
       ),
     );
