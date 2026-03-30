@@ -13,7 +13,8 @@ class TopRatedTvListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(right: 10),
-            child: MediaItemCard(),
+            child: Text('data'),
+            // MediaItemCard(),
           );
         },
       ),

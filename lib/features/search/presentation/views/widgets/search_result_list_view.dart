@@ -21,7 +21,8 @@ class SearchResultListView extends StatelessWidget {
         ),
         itemCount: 10,
         itemBuilder: (context, index) {
-          return MediaItemCard();
+          return Text('data');
+          // MediaItemCard();
         },
       ),
     );

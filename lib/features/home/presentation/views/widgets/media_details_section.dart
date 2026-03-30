@@ -52,7 +52,7 @@ class MediaDetailsSection extends StatelessWidget {
                   ),
                 ],
               ),
-              MoviesRating(),
+              // MoviesRating(),
             ],
           ),
         ),
