@@ -98,4 +98,25 @@ class HomeRepoImpl extends HomeRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failures, List<MovieModel>>> fetchSimilar({
+    required int id,
+  }) async {
+    try {
+      var data = await apiServices.get(endPoint: 'movie/$id/similar');
+
+      List<MovieModel> movie = [];
+      for (var item in data['results']) {
+        movie.add(MovieModel.fromJson(item));
+      }
+      return right(movie);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.factoryDioError(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
 }
