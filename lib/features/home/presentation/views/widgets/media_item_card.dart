@@ -30,6 +30,16 @@ class MediaItemCard extends StatelessWidget {
                 topLeft: Radius.circular(16),
               ),
               child: CachedNetworkImage(
+                errorWidget: (context, url, error) => Container(
+                  color: Colors.grey[300],
+                  child: Center(
+                    child: Icon(
+                      Icons.broken_image,
+                      size: 40,
+                      color: Colors.grey[600],
+                    ),
+                  ),
+                ),
                 imageUrl:
                     'https://image.tmdb.org/t/p/w500${movieModel.posterPath}',
                 height: MediaQuery.of(context).size.height * .27,

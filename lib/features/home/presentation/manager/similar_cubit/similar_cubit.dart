@@ -14,8 +14,8 @@ class SimilarCubit extends Cubit<SimilarState> {
     emit(SimilarLoading());
     var result = await homeRepo.fetchSimilar(id: id);
     result.fold(
-      (failure) => SimilarFailure(failure.errMessage),
-      (similar) => SimilarSuccess(similar),
+      (failure) => emit(SimilarFailure(failure.errMessage)),
+      (similar) => emit(SimilarSuccess(similar)),
     );
   }
 }
