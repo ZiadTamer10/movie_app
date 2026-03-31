@@ -43,6 +43,7 @@ class TrendingMoviesCarouselSlider extends StatelessWidget {
               itemBuilder: (context, index, realIndex) {
                 return TrendingMovies(
                   'https://image.tmdb.org/t/p/w500${state.movies[index].posterPath}',
+                  state.movies[index],
                 );
               },
               options: CarouselOptions(
