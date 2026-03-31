@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/utils/assets_data.dart';
 import 'package:movie_app/core/utils/styles.dart';
 import 'package:movie_app/core/widgets/custom_core_app_bar.dart';
+import 'package:movie_app/features/home/data/model/movie_model.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/movies_rating.dart';
 
 class MediaDetailsSection extends StatelessWidget {
-  const MediaDetailsSection({super.key});
+  const MediaDetailsSection(this.movieModel, {super.key});
+
+  final MovieModel movieModel;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,9 @@ class MediaDetailsSection extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(AssetsData.testImage),
+                image: NetworkImage(
+                  'https://image.tmdb.org/t/p/w500${movieModel.posterPath}',
+                ),
                 fit: BoxFit.fill,
               ),
             ),
@@ -30,7 +34,7 @@ class MediaDetailsSection extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            '8 Mile',
+            movieModel.title ?? movieModel.name!,
             style: Styles.textStyle24.copyWith(fontWeight: FontWeight.w600),
           ),
         ),
@@ -44,7 +48,7 @@ class MediaDetailsSection extends StatelessWidget {
                 children: [
                   Icon(Icons.calendar_month, color: Color(0xffBCBCBC)),
                   Text(
-                    '2002-11-08',
+                    movieModel.releaseDate ?? movieModel.firstAirDate!,
                     style: Styles.textStyle16.copyWith(
                       color: Color(0XFFBCBCBC),
                       fontSize: 14,
@@ -52,7 +56,7 @@ class MediaDetailsSection extends StatelessWidget {
                   ),
                 ],
               ),
-              // MoviesRating(),
+              MoviesRating(movieModel),
             ],
           ),
         ),
@@ -66,7 +70,7 @@ class MediaDetailsSection extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            'For Jimmy Smith Jr., life is a daily fight just to keep hope alive. Feeding his dreams in Detroit’s vibrant music scene, Jimmy wages an extraordinary personal struggle to find his own voice—and earn a place in a world where rhymes rule, legends are born, and every moment… is another chance.',
+            movieModel.overview!,
             style: Styles.textStyle12.copyWith(
               color: Color(0xffBCBCBC),
               fontSize: 14,

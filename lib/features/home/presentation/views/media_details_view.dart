@@ -24,6 +24,8 @@ class _MediaDetailsViewState extends State<MediaDetailsView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(child: MediaDetailsViewBody()));
+    return Scaffold(
+      body: SafeArea(child: MediaDetailsViewBody(widget.movieModel)),
+    );
   }
 }
