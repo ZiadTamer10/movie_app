@@ -39,7 +39,7 @@ class MediaItemCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-                movieModel.title ?? '',
+                movieModel.title ?? movieModel.,
                 overflow: TextOverflow.ellipsis,
                 style: Styles.textStyle16,
               ),

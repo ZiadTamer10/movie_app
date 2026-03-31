@@ -11,7 +11,9 @@ class MovieModel extends Equatable {
   final double? popularity;
   final String? posterPath;
   final String? releaseDate;
+  final String? firstAirDate;
   final String? title;
+  final String? name;
   final bool? video;
   final double? voteAverage;
   final int? voteCount;
@@ -27,7 +29,9 @@ class MovieModel extends Equatable {
     this.popularity,
     this.posterPath,
     this.releaseDate,
+    this.firstAirDate,
     this.title,
+    this.name,
     this.video,
     this.voteAverage,
     this.voteCount,
@@ -44,7 +48,9 @@ class MovieModel extends Equatable {
     popularity: (json['popularity'] as num?)?.toDouble(),
     posterPath: json['poster_path'] as String?,
     releaseDate: json['release_date'] as String?,
+    firstAirDate: json['first_air_date'] as String?,
     title: json['title'] as String?,
+    name: json['name'] as String?,
     video: json['video'] as bool?,
     voteAverage: (json['vote_average'] as num?)?.toDouble(),
     voteCount: json['vote_count'] as int?,
@@ -61,7 +67,9 @@ class MovieModel extends Equatable {
     'popularity': popularity,
     'poster_path': posterPath,
     'release_date': releaseDate,
+    'first_air_date': firstAirDate,
     'title': title,
+    'name': name,
     'video': video,
     'vote_average': voteAverage,
     'vote_count': voteCount,
@@ -80,7 +88,9 @@ class MovieModel extends Equatable {
       popularity,
       posterPath,
       releaseDate,
+      firstAirDate,
       title,
+      name,
       video,
       voteAverage,
       voteCount,
