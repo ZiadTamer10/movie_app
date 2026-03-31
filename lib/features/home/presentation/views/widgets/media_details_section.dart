@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/utils/styles.dart';
 import 'package:movie_app/core/widgets/custom_core_app_bar.dart';
@@ -18,15 +19,19 @@ class MediaDetailsSection extends StatelessWidget {
         CustomCoreAppBar(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Container(
+          child: CachedNetworkImage(
             height: 200,
             width: double.infinity,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(
-                  'https://image.tmdb.org/t/p/w500${movieModel.posterPath}',
+            imageUrl: 'https://image.tmdb.org/t/p/w500${movieModel.posterPath}',
+            fit: BoxFit.fill,
+            errorWidget: (context, url, error) => Container(
+              color: Colors.grey[300],
+              child: Center(
+                child: Icon(
+                  Icons.broken_image,
+                  size: 40,
+                  color: Colors.grey[600],
                 ),
-                fit: BoxFit.fill,
               ),
             ),
           ),

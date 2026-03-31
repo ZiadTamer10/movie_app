@@ -21,7 +21,6 @@ class TrendingMovies extends StatelessWidget {
           aspectRatio: 3 / 4,
           child: CachedNetworkImage(
             imageUrl: poster,
-            // poster,
             fit: BoxFit.fill,
             errorWidget: (context, url, error) => Container(
               color: Colors.grey[300],
