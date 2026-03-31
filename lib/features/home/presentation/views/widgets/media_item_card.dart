@@ -15,7 +15,9 @@ class MediaItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kMediaDetailsView);
+        GoRouter.of(
+          context,
+        ).push(AppRouter.kMediaDetailsView, extra: movieModel);
       },
       child: SizedBox(
         width: MediaQuery.of(context).size.width * .4,
