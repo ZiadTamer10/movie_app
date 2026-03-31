@@ -10,6 +10,7 @@ class MediaDetailsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      physics: BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(child: MediaDetailsSection(movieModel)),
         SliverToBoxAdapter(child: SizedBox(height: 20)),
