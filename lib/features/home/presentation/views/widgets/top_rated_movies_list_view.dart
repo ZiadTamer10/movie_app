@@ -16,6 +16,7 @@ class TopRatedMoviesListView extends StatelessWidget {
           return SizedBox(
             height: MediaQuery.of(context).size.height * .35,
             child: ListView.builder(
+              physics: BouncingScrollPhysics(),
               itemCount: state.movies.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
