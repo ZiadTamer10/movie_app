@@ -6,7 +6,7 @@ class MoviesRating extends StatelessWidget {
   const MoviesRating(
     this.movieModel, {
     super.key,
-    this.mainAxisAlignment = MainAxisAlignment.start,
+    this.mainAxisAlignment = MainAxisAlignment.end,
   });
 
   final MainAxisAlignment mainAxisAlignment;
@@ -15,7 +15,7 @@ class MoviesRating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 110),
+      padding: const EdgeInsets.only(right: 5),
       child: Row(
         mainAxisAlignment: mainAxisAlignment,
         spacing: 4,
