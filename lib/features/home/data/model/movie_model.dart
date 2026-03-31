@@ -7,6 +7,7 @@ class MovieModel extends Equatable {
   final int? id;
   final String? originalLanguage;
   final String? originalTitle;
+  final String? originalName;
   final String? overview;
   final double? popularity;
   final String? posterPath;
@@ -25,6 +26,7 @@ class MovieModel extends Equatable {
     this.id,
     this.originalLanguage,
     this.originalTitle,
+    this.originalName,
     this.overview,
     this.popularity,
     this.posterPath,
@@ -44,6 +46,7 @@ class MovieModel extends Equatable {
     id: json['id'] as int?,
     originalLanguage: json['original_language'] as String?,
     originalTitle: json['original_title'] as String?,
+    originalName: json['original_name'] as String?,
     overview: json['overview'] as String?,
     popularity: (json['popularity'] as num?)?.toDouble(),
     posterPath: json['poster_path'] as String?,
