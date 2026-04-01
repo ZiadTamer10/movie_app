@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:movie_app/core/errors/failure.dart';
 import 'package:movie_app/core/utils/api_services.dart';
-import 'package:movie_app/features/home/data/model/movie_model.dart';
+import 'package:movie_app/core/model/movie_model.dart';
 import 'package:movie_app/features/home/data/repos/home_repo.dart';
 
 class HomeRepoImpl extends HomeRepo {

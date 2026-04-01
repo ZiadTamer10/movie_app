@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/utils/styles.dart';
 import 'package:movie_app/core/widgets/custom_core_app_bar.dart';
-import 'package:movie_app/features/home/data/model/movie_model.dart';
+import 'package:movie_app/core/model/movie_model.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/movies_rating.dart';
 
 class MediaDetailsSection extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:movie_app/features/home/data/model/movie_model.dart';
+import 'package:movie_app/core/model/movie_model.dart';
 
 class MoviesRating extends StatelessWidget {
   const MoviesRating(

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/utils/app_router.dart';
 import 'package:movie_app/core/utils/styles.dart';
-import 'package:movie_app/features/home/data/model/movie_model.dart';
+import 'package:movie_app/core/model/movie_model.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/movies_rating.dart';
 
 class MediaItemCard extends StatelessWidget {
