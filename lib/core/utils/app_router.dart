@@ -6,6 +6,8 @@ import 'package:movie_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:movie_app/features/home/presentation/manager/similar_cubit/similar_cubit.dart';
 import 'package:movie_app/features/home/presentation/views/home_view.dart';
 import 'package:movie_app/features/home/presentation/views/media_details_view.dart';
+import 'package:movie_app/features/search/data/repos/search_repo_impl.dart';
+import 'package:movie_app/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:movie_app/features/search/presentation/views/search_view.dart';
 import 'package:movie_app/features/splash/presentation/views/splash_view.dart';
 
@@ -25,7 +27,13 @@ class AppRouter {
           child: MediaDetailsView(state.extra as MovieModel),
         ),
       ),
-      GoRoute(path: kSearchView, builder: (context, state) => SearchView()),
+      GoRoute(
+        path: kSearchView,
+        builder: (context, state) => BlocProvider(
+          create: (context) => SearchCubit(getIt.get<SearchRepoImpl>()),
+          child: SearchView(),
+        ),
+      ),
     ],
   );
 }

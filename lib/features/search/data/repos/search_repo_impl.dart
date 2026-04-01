@@ -15,7 +15,7 @@ class SearchRepoImpl extends SearchRepo {
     required String query,
   }) async {
     try {
-      var data = await apiServices.get(endPoint: 'search/$type&query=$query');
+      var data = await apiServices.get(endPoint: 'search/$type?query=$query&');
 
       List<MovieModel> search = [];
       for (var item in data['results']) {
