@@ -19,8 +19,16 @@ class SearchCubit extends Cubit<SearchState> {
     var result = await searchRepo.fetchSearch(type: type, query: query);
 
     result.fold(
-      (failure) => emit(SearchFailure(failure.errMessage)),
-      (search) => emit(SearchSuccess(search)),
+      (failure) {
+        if (!isClosed) {
+          emit(SearchFailure(failure.errMessage));
+        }
+      },
+      (search) {
+        if (!isClosed) {
+          emit(SearchSuccess(search));
+        }
+      },
     );
   }
 }
