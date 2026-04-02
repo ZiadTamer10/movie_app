@@ -11,7 +11,11 @@ final class SimilarInitial extends SimilarState {}
 
 final class SimilarLoading extends SimilarState {}
 
-class SimilarEmpty extends SimilarState {}
+class SimilarEmpty extends SimilarState {
+  final String type;
+
+  const SimilarEmpty(this.type);
+}
 
 final class SimilarSuccess extends SimilarState {
   final List<MovieModel> similar;

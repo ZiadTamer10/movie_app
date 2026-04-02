@@ -20,7 +20,7 @@ class SimilarCubit extends Cubit<SimilarState> {
       },
       (search) {
         if (search.isEmpty) {
-          emit(SimilarEmpty());
+          emit(SimilarEmpty(type));
         } else {
           emit(SimilarSuccess(search));
         }

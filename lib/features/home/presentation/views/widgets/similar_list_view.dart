@@ -31,6 +31,12 @@ class SimilarListView extends StatelessWidget {
           return CustomErrorWidget(state.errMessage);
         } else if (state is SimilarLoading) {
           return CustomLoadingIndicator();
+        } else if (state is SimilarEmpty) {
+          return Center(
+            child: Text(
+              state.type == 'movie' ? 'No Similar Movies' : 'No Similar TV',
+            ),
+          );
         } else {
           return Center(child: Text("No Similar Movies"));
         }
