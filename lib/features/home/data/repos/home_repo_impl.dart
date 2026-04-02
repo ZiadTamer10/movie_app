@@ -9,109 +9,18 @@ class HomeRepoImpl extends HomeRepo {
   final ApiServices apiServices;
 
   HomeRepoImpl(this.apiServices);
-  @override
-  Future<Either<Failures, List<MovieModel>>> fetchPopularMovies() async {
-    try {
-      var data = await apiServices.get(endPoint: 'movie/popular');
 
-      List<MovieModel> movies = [];
-      for (var item in data['results']) {
-        movies.add(MovieModel.fromJson(item));
-      }
-      return right(movies);
-    } on Exception catch (e) {
-      if (e is DioException) {
-        return Left(ServerFailure.factoryDioError(e));
-      }
-      return left(ServerFailure(e.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failures, List<MovieModel>>> fetchNowPlayingMovies() async {
-    try {
-      var data = await apiServices.get(endPoint: 'movie/now_playing');
-
-      List<MovieModel> movies = [];
-      for (var item in data['results']) {
-        movies.add(MovieModel.fromJson(item));
-      }
-      return right(movies);
-    } on Exception catch (e) {
-      if (e is DioException) {
-        return left(ServerFailure.factoryDioError(e));
-      }
-      return left(ServerFailure(e.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failures, List<MovieModel>>> fetchTopRatedMovies() async {
-    try {
-      var data = await apiServices.get(endPoint: 'movie/top_rated');
-
-      List<MovieModel> movies = [];
-      for (var item in data['results']) {
-        movies.add(MovieModel.fromJson(item));
-      }
-      return right(movies);
-    } on Exception catch (e) {
-      if (e is DioException) {
-        return left(ServerFailure.factoryDioError(e));
-      }
-      return left(ServerFailure(e.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failures, List<MovieModel>>> fetchPopulatTV() async {
-    try {
-      var data = await apiServices.get(endPoint: 'tv/popular');
-
-      List<MovieModel> tv = [];
-      for (var item in data['results']) {
-        tv.add(MovieModel.fromJson(item));
-      }
-      return right(tv);
-    } on Exception catch (e) {
-      if (e is DioException) {
-        return left(ServerFailure.factoryDioError(e));
-      }
-      return left(ServerFailure(e.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failures, List<MovieModel>>> fetchTopRatedTV() async {
-    try {
-      var data = await apiServices.get(endPoint: 'tv/top_rated');
-
-      List<MovieModel> tv = [];
-      for (var item in data['results']) {
-        tv.add(MovieModel.fromJson(item));
-      }
-      return right(tv);
-    } on Exception catch (e) {
-      if (e is DioException) {
-        return left(ServerFailure.factoryDioError(e));
-      }
-      return left(ServerFailure(e.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failures, List<MovieModel>>> fetchSimilar({
-    required int id,
-    required String type,
+  Future<Either<Failures, List<MovieModel>>> fetchData({
+    required String endPoint,
   }) async {
     try {
-      var data = await apiServices.get(endPoint: '$type/$id/similar');
+      var data = await apiServices.get(endPoint: endPoint);
 
-      List<MovieModel> movie = [];
+      final List<MovieModel> result = [];
       for (var item in data['results']) {
-        movie.add(MovieModel.fromJson(item));
+        result.add(MovieModel.fromJson(item));
       }
-      return right(movie);
+      return right(result);
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.factoryDioError(e));
@@ -120,4 +29,30 @@ class HomeRepoImpl extends HomeRepo {
       }
     }
   }
+
+  @override
+  Future<Either<Failures, List<MovieModel>>> fetchPopularMovies() =>
+      fetchData(endPoint: 'movie/popular');
+
+  @override
+  Future<Either<Failures, List<MovieModel>>> fetchNowPlayingMovies() =>
+      fetchData(endPoint: 'movie/popular');
+
+  @override
+  Future<Either<Failures, List<MovieModel>>> fetchTopRatedMovies() =>
+      fetchData(endPoint: 'movie/popular');
+
+  @override
+  Future<Either<Failures, List<MovieModel>>> fetchPopulatTV() =>
+      fetchData(endPoint: 'movie/popular');
+
+  @override
+  Future<Either<Failures, List<MovieModel>>> fetchTopRatedTV() =>
+      fetchData(endPoint: 'movie/popular');
+
+  @override
+  Future<Either<Failures, List<MovieModel>>> fetchSimilarData({
+    required int id,
+    required String type,
+  }) => fetchData(endPoint: '$type/$id/similar');
 }
