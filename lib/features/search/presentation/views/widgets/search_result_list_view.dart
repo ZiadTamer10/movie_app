@@ -14,7 +14,9 @@ class SearchResultListView extends StatelessWidget {
 
     return BlocBuilder<SearchCubit, SearchState>(
       builder: (context, state) {
-        if (state is SearchSuccess) {
+        if (state is SearchSuccess && state.movieModel.isEmpty) {
+          return Center(child: Text('No Results Found'));
+        } else if (state is SearchSuccess) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: GridView.builder(
