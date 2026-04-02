@@ -10,9 +10,9 @@ class SimilarCubit extends Cubit<SimilarState> {
 
   final HomeRepo homeRepo;
 
-  Future<void> fetchSimilar({required int id}) async {
+  Future<void> fetchSimilar({required int id, required String type}) async {
     emit(SimilarLoading());
-    var result = await homeRepo.fetchSimilar(id: id);
+    var result = await homeRepo.fetchSimilar(id: id, type: type);
 
     result.fold(
       (failure) {

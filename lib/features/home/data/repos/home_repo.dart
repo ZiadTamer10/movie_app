@@ -8,5 +8,8 @@ abstract class HomeRepo {
   Future<Either<Failures, List<MovieModel>>> fetchNowPlayingMovies();
   Future<Either<Failures, List<MovieModel>>> fetchPopulatTV();
   Future<Either<Failures, List<MovieModel>>> fetchTopRatedTV();
-  Future<Either<Failures, List<MovieModel>>> fetchSimilar({required int id});
+  Future<Either<Failures, List<MovieModel>>> fetchSimilar({
+    required int id,
+    required String type,
+  });
 }

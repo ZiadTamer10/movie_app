@@ -16,9 +16,10 @@ class MediaDetailsView extends StatefulWidget {
 class _MediaDetailsViewState extends State<MediaDetailsView> {
   @override
   void initState() {
-    BlocProvider.of<SimilarCubit>(
-      context,
-    ).fetchSimilar(id: widget.movieModel.id!);
+    BlocProvider.of<SimilarCubit>(context).fetchSimilar(
+      id: widget.movieModel.id!,
+      type: widget.movieModel.mediaType ?? 'movie',
+    );
     super.initState();
   }
 

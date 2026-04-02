@@ -102,9 +102,10 @@ class HomeRepoImpl extends HomeRepo {
   @override
   Future<Either<Failures, List<MovieModel>>> fetchSimilar({
     required int id,
+    required String type,
   }) async {
     try {
-      var data = await apiServices.get(endPoint: 'movie/$id/similar');
+      var data = await apiServices.get(endPoint: '$type/$id/similar');
 
       List<MovieModel> movie = [];
       for (var item in data['results']) {

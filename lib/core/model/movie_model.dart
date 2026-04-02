@@ -18,6 +18,7 @@ class MovieModel extends Equatable {
   final bool? video;
   final double? voteAverage;
   final int? voteCount;
+  final String? mediaType;
 
   const MovieModel({
     this.adult,
@@ -37,6 +38,7 @@ class MovieModel extends Equatable {
     this.video,
     this.voteAverage,
     this.voteCount,
+    this.mediaType,
   });
 
   factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
@@ -57,6 +59,8 @@ class MovieModel extends Equatable {
     video: json['video'] as bool?,
     voteAverage: (json['vote_average'] as num?)?.toDouble(),
     voteCount: json['vote_count'] as int?,
+    mediaType:
+        json['media_type'] ?? (json['first_air_date'] != null ? 'tv' : 'movie'),
   );
 
   Map<String, dynamic> toJson() => {
