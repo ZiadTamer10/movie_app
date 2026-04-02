@@ -29,8 +29,10 @@ class SimilarListView extends StatelessWidget {
           );
         } else if (state is SimilarFailure) {
           return CustomErrorWidget(state.errMessage);
-        } else {
+        } else if (state is SimilarLoading) {
           return CustomLoadingIndicator();
+        } else {
+          return Center(child: Text("No Similar Movies"));
         }
       },
     );
