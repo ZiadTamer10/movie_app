@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/utils/service_locator.dart';
 import 'package:movie_app/core/model/movie_model.dart';
 import 'package:movie_app/features/home/data/repos/home_repo_impl.dart';
+import 'package:movie_app/features/home/presentation/manager/details_cubit/details_cubit.dart';
 import 'package:movie_app/features/home/presentation/manager/similar_cubit/similar_cubit.dart';
 import 'package:movie_app/features/home/presentation/views/home_view.dart';
 import 'package:movie_app/features/home/presentation/views/media_details_view.dart';
@@ -22,8 +23,15 @@ class AppRouter {
       GoRoute(path: kHomeView, builder: (context, state) => HomeView()),
       GoRoute(
         path: kMediaDetailsView,
-        builder: (context, state) => BlocProvider(
-          create: (context) => SimilarCubit(getIt.get<HomeRepoImpl>()),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => SimilarCubit(getIt.get<HomeRepoImpl>()),
+            ),
+            BlocProvider(
+              create: (context) => DetailsCubit(getIt.get<HomeRepoImpl>()),
+            ),
+          ],
           child: MediaDetailsView(state.extra as MovieModel),
         ),
       ),
