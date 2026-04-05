@@ -36,19 +36,19 @@ class HomeRepoImpl extends HomeRepo {
 
   @override
   Future<Either<Failures, List<MovieModel>>> fetchNowPlayingMovies() =>
-      fetchData(endPoint: 'movie/popular');
+      fetchData(endPoint: 'movie/now_playing');
 
   @override
   Future<Either<Failures, List<MovieModel>>> fetchTopRatedMovies() =>
-      fetchData(endPoint: 'movie/popular');
+      fetchData(endPoint: 'movie/top_rated');
 
   @override
   Future<Either<Failures, List<MovieModel>>> fetchPopulatTV() =>
-      fetchData(endPoint: 'movie/popular');
+      fetchData(endPoint: 'tv/popular');
 
   @override
   Future<Either<Failures, List<MovieModel>>> fetchTopRatedTV() =>
-      fetchData(endPoint: 'movie/popular');
+      fetchData(endPoint: 'tv/top_rated');
 
   @override
   Future<Either<Failures, List<MovieModel>>> fetchSimilarData({
