@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:movie_app/core/errors/failure.dart';
+import 'package:movie_app/core/model/details_model.dart';
 import 'package:movie_app/core/model/movie_model.dart';
 
 abstract class HomeRepo {
@@ -8,6 +9,10 @@ abstract class HomeRepo {
   Future<Either<Failures, List<MovieModel>>> fetchNowPlayingMovies();
   Future<Either<Failures, List<MovieModel>>> fetchPopulatTV();
   Future<Either<Failures, List<MovieModel>>> fetchTopRatedTV();
+  Future<Either<Failures, DetailsModel>> fetchDetails({
+    required int id,
+    required String type,
+  });
   Future<Either<Failures, List<MovieModel>>> fetchSimilarData({
     required int id,
     required String type,

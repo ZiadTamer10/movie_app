@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:movie_app/core/errors/failure.dart';
+import 'package:movie_app/core/model/details_model.dart';
 import 'package:movie_app/core/utils/api_services.dart';
 import 'package:movie_app/core/model/movie_model.dart';
 import 'package:movie_app/features/home/data/repos/home_repo.dart';
@@ -49,6 +50,27 @@ class HomeRepoImpl extends HomeRepo {
   @override
   Future<Either<Failures, List<MovieModel>>> fetchTopRatedTV() =>
       fetchData(endPoint: 'tv/top_rated');
+
+  @override
+  Future<Either<Failures, DetailsModel>> fetchDetails({
+    required int id,
+    required String type,
+  }) async {
+    try {
+      var data = await apiServices.get(
+        endPoint: '$type/$id',
+        queryParameters: {'append_to_response': 'videos'},
+      );
+
+      return right(DetailsModel.fromJson(data));
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.factoryDioError(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
 
   @override
   Future<Either<Failures, List<MovieModel>>> fetchSimilarData({
