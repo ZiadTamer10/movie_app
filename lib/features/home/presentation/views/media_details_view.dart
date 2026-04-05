@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/model/movie_model.dart';
+import 'package:movie_app/features/home/presentation/manager/details_cubit/details_cubit.dart';
 import 'package:movie_app/features/home/presentation/manager/similar_cubit/similar_cubit.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/media_details_view_body.dart';
 
@@ -16,11 +17,13 @@ class MediaDetailsView extends StatefulWidget {
 class _MediaDetailsViewState extends State<MediaDetailsView> {
   @override
   void initState() {
-    BlocProvider.of<SimilarCubit>(context).fetchSimilar(
-      id: widget.movieModel.id!,
-      type: widget.movieModel.mediaType ?? 'movie',
-    );
     super.initState();
+
+    final id = widget.movieModel.id!;
+    final mediaType = widget.movieModel.mediaType ?? 'movie';
+
+    context.read<SimilarCubit>().fetchSimilar(id: id, type: mediaType);
+    context.read<DetailsCubit>().fetchDetails(id: id, type: mediaType);
   }
 
   @override
