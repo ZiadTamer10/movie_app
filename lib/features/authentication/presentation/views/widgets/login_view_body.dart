@@ -47,6 +47,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             ),
             SizedBox(height: 50),
             CustomAuthButton(
+              text: 'Sign In',
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   GoRouter.of(context).push(AppRouter.kHomeView);

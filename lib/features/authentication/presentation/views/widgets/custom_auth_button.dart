@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/core/utils/styles.dart';
 
 class CustomAuthButton extends StatelessWidget {
-  const CustomAuthButton({super.key, this.onPressed});
+  const CustomAuthButton({super.key, this.onPressed, required this.text});
 
   final void Function()? onPressed;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class CustomAuthButton extends StatelessWidget {
             backgroundColor: Color.fromARGB(255, 234, 23, 8),
           ),
           child: Text(
-            'Sign In',
+            text,
             style: Styles.textStyle16.copyWith(
               color: Colors.white,
               fontSize: 20,
