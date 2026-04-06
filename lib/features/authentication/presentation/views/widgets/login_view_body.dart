@@ -59,9 +59,14 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               spacing: 4,
               children: [
                 Text("Don't you have account?", style: Styles.textStyle16),
-                Text(
-                  'Sign Up',
-                  style: Styles.textStyle16.copyWith(color: Colors.blue),
+                GestureDetector(
+                  onTap: () {
+                    GoRouter.of(context).push(AppRouter.kRegisterView);
+                  },
+                  child: Text(
+                    'Sign Up',
+                    style: Styles.textStyle16.copyWith(color: Colors.blue),
+                  ),
                 ),
               ],
             ),
