@@ -17,8 +17,12 @@ class AuthRepoImpl extends AuthRepo {
   }) async {
     try {
       var user = await authServices.login(email: email, password: password);
-
-      return right(user!);
+      if (user == null) {
+        return left(UnknownAuthFailure('Authentication failed'));
+      }
+      return right(user);
+    } on FirebaseAuthException catch (e) {
+      return left(AuthFailure.fromFirebaseAuthException(e));
     } catch (e) {
       return left(AuthFailure.fromException(e));
     }
@@ -31,8 +35,10 @@ class AuthRepoImpl extends AuthRepo {
   }) async {
     try {
       var user = await authServices.register(email: email, password: password);
-
-      return right(user!);
+      if (user == null) return left(UnknownAuthFailure('Registration failed'));
+      return right(user);
+    } on FirebaseAuthException catch (e) {
+      return left(AuthFailure.fromFirebaseAuthException(e));
     } catch (e) {
       return left(AuthFailure.fromException(e));
     }
