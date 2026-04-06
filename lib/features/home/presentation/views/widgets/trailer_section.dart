@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/model/movie_model.dart';
@@ -33,11 +34,22 @@ class TrailerSection extends StatelessWidget {
               ),
             );
           } else {
-            return Image.network(
-              'https://image.tmdb.org/t/p/w500${movieModel.posterPath}',
+            return CachedNetworkImage(
+              imageUrl:
+                  'https://image.tmdb.org/t/p/w500${movieModel.posterPath}',
               height: 200,
               width: double.infinity,
               fit: BoxFit.cover,
+              errorWidget: (context, url, error) => Container(
+                color: Colors.grey[300],
+                child: Center(
+                  child: Icon(
+                    Icons.broken_image,
+                    size: 40,
+                    color: Colors.grey[600],
+                  ),
+                ),
+              ),
             );
           }
         } else if (state is DetailsFailure) {
