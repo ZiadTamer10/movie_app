@@ -15,13 +15,25 @@ class RegisterView extends StatelessWidget {
         listener: (context, state) {
           if (state is RegisterSuccess) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Account created Successfuly')),
+              SnackBar(
+                backgroundColor: Colors.green,
+                content: Text(
+                  'Login Successfuly',
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
             );
             GoRouter.of(context).push(AppRouter.kHomeView);
           } else if (state is RegisterFailure) {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text(state.errMessage)));
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: Color.fromARGB(255, 234, 23, 8),
+                content: Text(
+                  state.errMessage,
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
+            );
           }
         },
         child: RegisterViewBody(),

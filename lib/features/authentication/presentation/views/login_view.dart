@@ -15,13 +15,25 @@ class LoginView extends StatelessWidget {
         listener: (context, state) {
           if (state is LoginSuccess) {
             GoRouter.of(context).push(AppRouter.kHomeView);
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text('Login Successfuly')));
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: Colors.green,
+                content: Text(
+                  'Login Successfuly',
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
+            );
           } else if (state is LoginFailure) {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text(state.errMessage)));
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: Color.fromARGB(255, 234, 23, 8),
+                content: Text(
+                  state.errMessage,
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
+            );
           }
         },
         child: LoginViewBody(),
