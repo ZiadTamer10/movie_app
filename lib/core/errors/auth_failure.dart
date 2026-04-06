@@ -29,7 +29,7 @@ abstract class AuthFailure extends Failures {
     }
   }
 
-  factory AuthFailure.fromException(Exception e) {
+  factory AuthFailure.fromException(Object e) {
     if (e is FirebaseAuthException) {
       return AuthFailure.fromFirebaseAuthException(e);
     }

@@ -4,12 +4,12 @@ import 'package:movie_app/core/errors/failure.dart';
 
 abstract class AuthRepo {
   Future<Either<Failures, User>> login({
-    required String emial,
+    required String email,
     required String password,
   });
 
   Future<Either<Failures, User>> register({
-    required String emial,
+    required String email,
     required String password,
   });
 }
