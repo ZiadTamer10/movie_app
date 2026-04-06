@@ -4,6 +4,7 @@ import 'package:movie_app/core/utils/service_locator.dart';
 import 'package:movie_app/core/model/movie_model.dart';
 import 'package:movie_app/features/authentication/data/repos/auth_repo_impl.dart';
 import 'package:movie_app/features/authentication/presentation/manager/login_cubit/login_cubit.dart';
+import 'package:movie_app/features/authentication/presentation/manager/register_cubit/register_cubit.dart';
 import 'package:movie_app/features/authentication/presentation/views/login_view.dart';
 import 'package:movie_app/features/authentication/presentation/views/register_view.dart';
 import 'package:movie_app/features/home/data/repos/home_repo_impl.dart';
@@ -33,7 +34,13 @@ class AppRouter {
           child: LoginView(),
         ),
       ),
-      GoRoute(path: kRegisterView, builder: (context, state) => RegisterView()),
+      GoRoute(
+        path: kRegisterView,
+        builder: (context, state) => BlocProvider(
+          create: (context) => RegisterCubit(getIt.get<AuthRepoImpl>()),
+          child: RegisterView(),
+        ),
+      ),
       GoRoute(path: kHomeView, builder: (context, state) => HomeView()),
       GoRoute(
         path: kMediaDetailsView,

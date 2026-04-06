@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/utils/app_router.dart';
 import 'package:movie_app/core/utils/styles.dart';
+import 'package:movie_app/features/authentication/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:movie_app/features/authentication/presentation/views/widgets/custom_auth_button.dart';
 import 'package:movie_app/features/authentication/presentation/views/widgets/custom_text_form_field.dart';
 
@@ -50,7 +52,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               text: 'Sign In',
               onPressed: () {
                 if (formKey.currentState!.validate()) {
-                  GoRouter.of(context).push(AppRouter.kHomeView);
+                  context.read<LoginCubit>().login(
+                    email: email!.trim(),
+                    password: password!.trim(),
+                  );
                 }
               },
             ),
