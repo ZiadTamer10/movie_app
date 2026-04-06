@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:movie_app/features/authentication/data/repos/auth_repo.dart';
 
-part 'auth_state.dart';
+part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this.authRepo) : super(LoginInitial());
