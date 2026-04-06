@@ -2,6 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/utils/service_locator.dart';
 import 'package:movie_app/core/model/movie_model.dart';
+import 'package:movie_app/features/authentication/data/repos/auth_repo_impl.dart';
+import 'package:movie_app/features/authentication/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:movie_app/features/authentication/presentation/views/login_view.dart';
 import 'package:movie_app/features/authentication/presentation/views/register_view.dart';
 import 'package:movie_app/features/home/data/repos/home_repo_impl.dart';
@@ -24,7 +26,13 @@ class AppRouter {
   static final GoRouter router = GoRouter(
     routes: [
       GoRoute(path: '/', builder: (context, state) => SplashView()),
-      GoRoute(path: kLoginView, builder: (context, state) => LoginView()),
+      GoRoute(
+        path: kLoginView,
+        builder: (context, state) => BlocProvider(
+          create: (context) => LoginCubit(getIt.get<AuthRepoImpl>()),
+          child: LoginView(),
+        ),
+      ),
       GoRoute(path: kRegisterView, builder: (context, state) => RegisterView()),
       GoRoute(path: kHomeView, builder: (context, state) => HomeView()),
       GoRoute(

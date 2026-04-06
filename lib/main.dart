@@ -13,9 +13,9 @@ import 'package:movie_app/features/home/presentation/manager/top_rated_tv_cubit/
 import 'package:movie_app/firebase_options.dart';
 
 void main() async {
-  setupServiceLocator();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  setupServiceLocator();
   runApp(const MovieApp());
 }
 
