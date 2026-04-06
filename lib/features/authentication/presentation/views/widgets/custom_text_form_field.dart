@@ -1,16 +1,39 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField(this.hintText, {super.key});
+  const CustomTextFormField({
+    super.key,
+    required this.hintText,
+    required this.onChanged,
+    this.obscureText = false,
+  });
 
   final String hintText;
+  final Function(String) onChanged;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
-      child: TextField(
-        onSubmitted: (value) {},
+      child: TextFormField(
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Field is required';
+          }
+
+          if (hintText == 'Email' && !value.contains('@')) {
+            return 'Enter valid email';
+          }
+
+          if (hintText == 'Password' && value.length < 6) {
+            return 'Password must be at least 6 characters';
+          }
+
+          return null;
+        },
+        obscureText: obscureText,
+        onChanged: onChanged,
         decoration: InputDecoration(
           hint: buildHintText(),
           fillColor: Color(0xff202020),
