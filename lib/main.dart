@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,9 +10,12 @@ import 'package:movie_app/features/home/presentation/manager/popular_movies_cubi
 import 'package:movie_app/features/home/presentation/manager/popular_tv_cubit/popular_tv_cubit.dart';
 import 'package:movie_app/features/home/presentation/manager/top_rated_movies_cubit/top_rated_movies_cubit.dart';
 import 'package:movie_app/features/home/presentation/manager/top_rated_tv_cubit/top_rated_tv_cubit.dart';
+import 'package:movie_app/firebase_options.dart';
 
-void main() {
+void main() async {
   setupServiceLocator();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MovieApp());
 }
 
