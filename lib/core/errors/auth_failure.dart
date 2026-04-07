@@ -8,6 +8,8 @@ abstract class AuthFailure extends Failures {
     switch (e.code) {
       case 'invalid-email':
         return InvalidEmail(e.message ?? 'Invalid email address');
+      case 'invalid-credential':
+        return InvalidCredential('Invalid email or password');
       case 'user-disabled':
         return UserDisabled(e.message ?? 'User account disabled');
       case 'user-not-found':
@@ -39,6 +41,10 @@ abstract class AuthFailure extends Failures {
 
 final class InvalidEmail extends AuthFailure {
   const InvalidEmail(super.errMessage);
+}
+
+final class InvalidCredential extends AuthFailure {
+  const InvalidCredential(super.errMessage);
 }
 
 final class UserDisabled extends AuthFailure {
