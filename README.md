@@ -32,7 +32,7 @@ A Flutter Movie App that allows users to explore movies and TV shows, search for
 
 ### 🚀 Splash
 
-![splash](assets/images/Splash.png)
+![splash](assets/images/splash.png)
 
 ---
 
