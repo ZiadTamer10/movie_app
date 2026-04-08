@@ -1,17 +1,120 @@
-# movie_app
+# 🎬 Movie App
 
-A new Flutter project.
+A Flutter Movie App that allows users to explore movies and TV shows, search for content, watch trailers, and get detailed information.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+* 🔍 Search for Movies & TV Shows
+* 🎥 Watch Trailers (YouTube integration)
+* ⭐ View Ratings & Details
+* 🎬 Similar Movies & TV Shows
+* 🔐 Authentication (Login & Register using Firebase)
+* 📡 API Integration with TMDB
+* ⚡ Smooth UI with Skeleton Loading
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Tech Stack
+
+* Flutter
+* Dart
+* Bloc (Cubit)
+* Firebase Authentication
+* Dio (API calls)
+* TMDB API
+* YouTube Player
+
+---
+
+## 📸 Screenshots
+
+### 🚀 Splash
+
+![splash](assets/images/Splash.png)
+
+---
+
+### 🔐 Authentication
+
+| Login                              | Register                           |
+| ---------------------------------- | ---------------------------------- |
+| ![auth1](assets/images/Login.png) | ![auth2](assets/images/Register.png) |
+
+---
+
+### 🏠 Home
+
+![home](assets/images/Home.png)
+
+---
+
+### 🎬 Details
+
+![details](assets/images/Details.png)
+
+---
+
+### 🔍 Search
+
+| Search 1                               | Search 2                               |
+| -------------------------------------- | -------------------------------------- |
+| ![search1](assets/images/Search2.png) | ![search2](assets/images/Search1.png) |
+
+---
+
+## 🧠 Architecture
+
+This project follows **Clean Architecture** principles:
+
+features/
+├── data
+│    ├── repos
+│    ├── models
+│
+├── presentation
+│    ├── views
+│    ├── cubit
+
+---
+
+## 🔥 Key Highlights
+
+* Dynamic API handling (Movies & TV)
+* Error handling (Network + Firebase)
+* Smart trailer selection (Official YouTube trailers)
+* Reusable components
+* State management using Bloc
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/ZiadTamer10/movie_app.git
+cd movie_app
+flutter pub get
+flutter run
+```
+
+---
+
+## ⚠️ Setup
+
+Make sure to add your Firebase configuration files:
+
+* Android → `google-services.json`
+* iOS → `GoogleService-Info.plist`
+
+Also, add your TMDB API key inside ApiServices.
+
+---
+
+## 💪 Author
+
+**Ziad Tamer**
+
+---
+
+## ⭐ Don't forget to star the repo if you like it!
